@@ -20,12 +20,17 @@ public class EmployeeDto {
 
     @Schema(description = "Salary of the employee")
     @NotNull(message = "Salary can not be null")
-    private Long salary;
+    private Double salary;
 
     @Schema(description = "ID of the employee")
     @NotNull(message = "ID can not be null")
     private Long id;
 
     @Schema(description = "Profile image URL of the employee")
+    @NotNull(message = "ID can not be null")
     private String profileImage;
+
+    @Schema(description = "Annual Salary of the employee")
+    @NotNull(message = "annual salary can not be null")
+    private Double annualSalary;
 }
