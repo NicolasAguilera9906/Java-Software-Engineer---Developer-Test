@@ -2,6 +2,7 @@ package com.amaris.employees.api;
 
 import com.amaris.employees.exception.EmployeeApiException;
 import com.amaris.employees.models.Employee;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

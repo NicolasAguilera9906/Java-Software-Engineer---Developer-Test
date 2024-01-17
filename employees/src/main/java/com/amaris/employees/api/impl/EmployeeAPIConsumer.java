@@ -8,6 +8,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import static com.amaris.employees.constants.EmployeesConstants.EMPLOYEES_API_URL;
 
+@Service
 public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
 
     @Override

@@ -18,7 +18,7 @@ public class EmployeeServiceImpl  implements IEmployeeService {
     private EmployeeAPIConsumer employeeAPIConsumer;
 
     @Override
-    public List<EmployeeDto> fetchEmployeesFromApi() {
+    public List<EmployeeDto> fetchEmployees() {
         List<Employee> employees = employeeAPIConsumer.fetchEmployeesFromApi();
         return employees.stream()
                 .map(employee -> {
