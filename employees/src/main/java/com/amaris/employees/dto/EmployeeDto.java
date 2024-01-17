@@ -27,5 +27,5 @@ public class EmployeeDto {
     private Long id;
 
     @Schema(description = "Profile image URL of the employee")
-    private String profile_image;
+    private String profileImage;
 }
