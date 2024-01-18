@@ -54,4 +54,28 @@ public class EmployeesController {
         return ResponseEntity.status(HttpStatus.OK).body(employeeDtoList);
     }
 
+    @Operation(
+            summary = "Fetch Employee details REST API",
+            description = "REST API to fetch Employee details based on an id"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/employees/{employeeId}")
+    public ResponseEntity<EmployeeDto> fetchEmployeeDetails(@PathVariable String employeeId) {
+        EmployeeDto employeeDto = iEmployeeService.fetchEmployee(employeeId);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeDto);
+    }
+
 }

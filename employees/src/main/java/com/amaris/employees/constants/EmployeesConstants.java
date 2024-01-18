@@ -7,5 +7,6 @@ public class EmployeesConstants {
     }
 
     public static final String EMPLOYEES_API_URL = "http://dummy.restapiexample.com/api/v1/employees";
+    public static final String EMPLOYEE_API_URL = "http://dummy.restapiexample.com/api/v1/employee";
 
 }

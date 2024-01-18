@@ -21,6 +21,7 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 import static com.amaris.employees.constants.EmployeesConstants.EMPLOYEES_API_URL;
+import static com.amaris.employees.constants.EmployeesConstants.EMPLOYEE_API_URL;
 
 @Service
 public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
@@ -50,17 +51,17 @@ public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
     public Employee fetchEmployeeFromApi(String employeeId) throws EmployeeApiException.ApiException, ResourceNotFoundException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(EMPLOYEES_API_URL + "/" + employeeId)).GET().build();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(EMPLOYEE_API_URL + "/" + employeeId)).GET().build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             int statusCode = response.statusCode();
             if (statusCode == 200) {
                 Gson gson = new Gson();
                 JsonObject jsonObject = gson.fromJson(response.body(), JsonObject.class);
-                if (jsonObject.has("data")) {
+                if (!jsonObject.get("data").isJsonNull()) {
                     JsonElement dataElement = jsonObject.get("data");
                     return gson.fromJson(dataElement, Employee.class);
                 } else {
-                    throw new ResourceNotFoundException(String.format(employeeId));
+                    throw new ResourceNotFoundException(String.format("Employee with ID %s not found", employeeId));
                 }
             } else {
                 throw new EmployeeApiException.ApiException(
