@@ -1,8 +1,8 @@
 package com.amaris.employees.api.impl;
 
 import com.amaris.employees.api.IEmployeeAPIConsumer;
-import com.amaris.employees.exception.EmployeeApiException;
-import com.amaris.employees.exception.ResourceNotFoundException;
+import com.amaris.employees.exception.employee.EmployeeApiException;
+import com.amaris.employees.exception.employee.EmployeeNotFoundException;
 import com.amaris.employees.models.Employee;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -40,7 +40,9 @@ public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
                 Type listType = new TypeToken<List<Employee>>() {}.getType();
                 return gson.fromJson(dataArray, listType);
             } else {
-                throw new EmployeeApiException.ApiException("Failed to retrieve Employees data from the API", statusCode);
+                throw new EmployeeApiException.ApiException("Failed to retrieve Employees data from the API. " +
+                        "Response Message: " + response.body(), statusCode);
+
             }
         } catch (IOException | InterruptedException e) {
             throw new EmployeeApiException.ApiException("Failed to connect to the API", HttpStatus.INTERNAL_SERVER_ERROR.value());
@@ -48,7 +50,7 @@ public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
     }
 
     @Override
-    public Employee fetchEmployeeFromApi(String employeeId) throws EmployeeApiException.ApiException, ResourceNotFoundException {
+    public Employee fetchEmployeeFromApi(String employeeId) throws EmployeeApiException.ApiException, EmployeeNotFoundException {
         try {
             HttpClient httpClient = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder().uri(URI.create(EMPLOYEE_API_URL + "/" + employeeId)).GET().build();
@@ -61,7 +63,7 @@ public class EmployeeAPIConsumer implements IEmployeeAPIConsumer {
                     JsonElement dataElement = jsonObject.get("data");
                     return gson.fromJson(dataElement, Employee.class);
                 } else {
-                    throw new ResourceNotFoundException(String.format("Employee with ID %s not found", employeeId));
+                    throw new EmployeeNotFoundException(employeeId);
                 }
             } else {
                 throw new EmployeeApiException.ApiException(

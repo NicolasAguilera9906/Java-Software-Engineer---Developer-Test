@@ -1,14 +1,11 @@
-package com.amaris.employees.exception;
+package com.amaris.employees.exception.employee;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 public class EmployeeApiException {
 
     @Getter
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public static class ApiException extends RuntimeException {
 
         private final int statusCode;

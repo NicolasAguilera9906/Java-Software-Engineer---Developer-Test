@@ -1,6 +1,7 @@
 package com.amaris.employees.controller;
 
 import com.amaris.employees.dto.EmployeeDto;
+import com.amaris.employees.dto.ErrorResponseDto;
 import com.amaris.employees.services.IEmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

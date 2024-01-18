@@ -14,13 +14,4 @@ public class EmployeesMapper {
         return employeeDto;
     }
 
-    public static Employee mapToEmployee(EmployeeDto employeeDto, Employee employee) {
-        employee.setId(employeeDto.getId());
-        employee.setName(employeeDto.getName());
-        employee.setSalary(employeeDto.getSalary());
-        employee.setAge(employeeDto.getAge());
-        employee.setProfileImage(employeeDto.getProfileImage());
-        return employee;
-    }
-
 }
