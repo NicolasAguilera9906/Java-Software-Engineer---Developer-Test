@@ -30,4 +30,13 @@ public class EmployeeServiceImpl  implements IEmployeeService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public EmployeeDto fetchEmployee(String employeeId) {
+        Employee employee = employeeAPIConsumer.fetchEmployeeFromApi(employeeId);
+        EmployeeDto employeeDto = EmployeesMapper.mapToEmployeeDto(employee, new EmployeeDto());
+        double annualSalary = employee.getSalary() * 12;
+        employeeDto.setAnnualSalary(annualSalary);
+        return employeeDto;
+    }
+
 }
