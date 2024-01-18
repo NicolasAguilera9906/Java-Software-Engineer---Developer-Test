@@ -1,0 +1,114 @@
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+
+  .toolbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+  }
+
+  .brand-logo {
+    height: 80px;
+    margin-bottom: 10px;
+
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .content {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .center-text {
+    text-align: center;
+  }
+
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-list li {
+    margin-bottom: 10px;
+  }
+
+  .menu-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .menu-list a:hover {
+    color: #ff6600;
+  }
+
+
+  .toggle-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .toggle-button:hover {
+    background-color: #45a049;
+
+  }
+</style>
+
+<div class="container">
+  <div class="toolbar" role="banner">
+
+    <img src="assets/brand.png" alt="Amaris Consulting Logo" class="brand-logo">
+    <h1 class="title">Amaris Consulting Employee App</h1>
+  </div>
+
+  <div class="content">
+    <h2 class="center-text">Main Menu</h2>
+    <ul class="menu-list">
+      <li><a (click)="toggleEmployeeDetails()">Show / Hide Employee Details</a></li>
+    </ul>
+
+    <button class="toggle-button" (click)="toggleEmployeeDetails()">
+      {{ showEmployeeDetails ? 'Hide' : 'Show' }} Employee Details
+    </button>
+
+    <div *ngIf="showEmployeeDetails">
+
+      <app-employee></app-employee>
+    </div>
+  </div>
+
+
+
+
+
+  <div *ngIf="errorMessage">
+    <p class="error-message">{{ errorMessage }}</p>
+  </div>
+</div>

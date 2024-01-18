@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amaris Consulting Employee Appp</title>
+
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .toolbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo {
+      height: 150px;
+
+      margin-right: 10px;
+    }
+
+    .title {
+      margin: 0;
+    }
+
+    .content {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .consult-button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #337ab7;
+
+      color: white;
+
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      margin-left: 5px;
+
+    }
+
+    .consult-button:hover {
+      background-color: #286090;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="content">
+      <label for="employeeId">Employee ID:</label>
+      <input type="text" id="employeeId" [(ngModel)]="employeeId" />
+      <button class="consult-button" (click)="consultEmployee(employeeId)">
+        Consult Employee
+      </button>
+    </div>
+
+    <div *ngIf="employeeData.length > 0">
+      <h2 class="center-text">Employee Details</h2>
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Salary</th>
+          <th>ID</th>
+          <th>Profile Image</th>
+          <th>Annual Salary</th>
+        </tr>
+        <tr *ngFor="let employee of employeeData">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.age }}</td>
+          <td>{{ employee.salary }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.profileImage }}</td>
+          <td>{{ employee.annualSalary }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div *ngIf="errorMessage">
+      <p class="error-message">{{ errorMessage }}</p>
+    </div>
+
+  </div>
+</body>
+
+</html>

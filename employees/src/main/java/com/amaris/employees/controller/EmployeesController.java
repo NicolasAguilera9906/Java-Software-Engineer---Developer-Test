@@ -26,6 +26,7 @@ import java.util.List;
 @RequestMapping(path="/api/v1", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 @Validated
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
 public class EmployeesController {
 
     private IEmployeeService iEmployeeService;
@@ -50,6 +51,7 @@ public class EmployeesController {
     }
     )
     @GetMapping("/employees")
+    @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
     public ResponseEntity<List<EmployeeDto>> fetchEmployees() {
         List<EmployeeDto> employeeDtoList = iEmployeeService.fetchEmployees();
         return ResponseEntity.status(HttpStatus.OK).body(employeeDtoList);
@@ -74,6 +76,7 @@ public class EmployeesController {
     }
     )
     @GetMapping("/employees/{employeeId}")
+    @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
     public ResponseEntity<EmployeeDto> fetchEmployeeDetails(@PathVariable String employeeId) {
         EmployeeDto employeeDto = iEmployeeService.fetchEmployee(employeeId);
         return ResponseEntity.status(HttpStatus.OK).body(employeeDto);
