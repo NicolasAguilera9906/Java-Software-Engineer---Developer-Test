@@ -5,7 +5,7 @@ import com.amaris.employees.dto.EmployeeDto;
 import java.util.List;
 
 public interface IEmployeeService {
-    List<EmployeeDto> fetchEmployees();
 
+    List<EmployeeDto> fetchEmployees();
     EmployeeDto fetchEmployee(String employeeId);
 }
