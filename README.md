@@ -42,7 +42,8 @@ Follow these steps to run the application:
 
 ## Tests
 - One test was made to the service layer
-   ![test](./images/test.png)
+   ![test1](./images/test1.png)
+   ![test2](./images/test2.png)
   
 ## Author
 
