@@ -3,6 +3,7 @@
 Welcome to the Employee Management App! This application allows you to manage and query employee data through a user-friendly interface. 
 This project was developed as part of a technical assessment for Amaris Consulting.
 
+
 ## Prerequisites
 
 Before running the app, ensure that you have the following software installed:
@@ -11,6 +12,14 @@ Before running the app, ensure that you have the following software installed:
 2. **Java**: Version **1.8+**
 3. **Node**: Version **18**
 4. **npm**: Version **9**
+
+## Front-end (employees-front)
+
+The front-end of this application is implemented using Angular. To explore the code, navigate to the 'employees-front' folder.
+
+## Back-end (employees)
+
+The back-end of this application is implemented using Java, Spring Boot and Gradle.
 
 ## Getting Started
 
