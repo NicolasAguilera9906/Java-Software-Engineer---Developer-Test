@@ -42,7 +42,7 @@ Follow these steps to run the application:
 
 ## Tests
 - One test was made to the service layer
-   ![web2](./images/test.png)
+   ![test](./images/test.png)
   
 ## Author
 
