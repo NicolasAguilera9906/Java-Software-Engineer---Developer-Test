@@ -47,7 +47,7 @@ Follow these steps to run the application:
 ## Author
 
 - **Nicolás Aguilera Contreras**
-  - Linkedln: [Your GitHub Profile](https://www.linkedin.com/in/nicol%C3%A1s-aguilera-contreras-3137a01b2?originalSubdomain=co)
+  - [Linkedln](https://www.linkedin.com/in/nicol%C3%A1s-aguilera-contreras-3137a01b2?originalSubdomain=co)
 
 ## License
 
