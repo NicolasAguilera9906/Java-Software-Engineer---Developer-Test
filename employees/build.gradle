@@ -1,29 +1,22 @@
 
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.1'
-	id 'io.spring.dependency-management' version '1.1.4'
-	id 'war'
-}
-
-war {
-    enabled = true
+    id 'java'
+    id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'com.amaris'
 version = '0.0.1-SNAPSHOT'
-
-java {
-	sourceCompatibility = '17'
-}
+sourceCompatibility = "1.8"
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+	implementation 'org.springframework.boot:spring-boot-starter:2.7.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
@@ -32,7 +25,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.json/json
 	implementation group: 'org.json', name: 'json', version: '20231013'
 	// https://mvnrepository.com/artifact/org.springframework/spring-web
-	implementation group: 'org.springframework', name: 'spring-web', version: '6.1.3'
+	implementation group: 'org.springframework', name: 'spring-web', version: '5.3.14'
 	// https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations
 	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.20'
 	// https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
@@ -40,7 +33,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
 	compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.2.1'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.0'
 }
 
 tasks.named('test') {
@@ -49,10 +42,4 @@ tasks.named('test') {
 
 tasks.withType(JavaCompile) {
 	options.compilerArgs << "-parameters"
-}
-
-task explodeWar(type: Copy) {
-    dependsOn war
-    from zipTree(war.archiveFile)
-    into "${buildDir}/explodedWar"
 }
