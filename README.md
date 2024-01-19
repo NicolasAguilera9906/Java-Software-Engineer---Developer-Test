@@ -16,7 +16,7 @@ Before running the app, ensure that you have the following software installed:
 
 Follow these steps to run the application:
 
-1. Navigate to the 'employee' folder:
+1. Navigate to the 'employees' folder:
 
     ```bash
     cd employees
