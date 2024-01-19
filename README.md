@@ -19,7 +19,7 @@ Follow these steps to run the application:
 1. Navigate to the 'employee' folder:
 
     ```bash
-    cd employee
+    cd employees
     ```
 
 2. Run the following command to start the application:
