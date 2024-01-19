@@ -39,8 +39,12 @@ Follow these steps to run the application:
   ![api1](./images/api1.png)
 - To query a specific employee: [localhost:8080/api/v1/employee/{id}](http://localhost:8080/api/v1/employee/{id})
   ![api2](./images/api2.png)
+
+## Tests
+- One test was made to the service layer
+   ![web2](./images/test.png)
   
-## Contributing
+## Author
 
 - **Nicolás Aguilera Contreras**
   - Linkedln: [Your GitHub Profile](https://www.linkedin.com/in/nicol%C3%A1s-aguilera-contreras-3137a01b2?originalSubdomain=co)
